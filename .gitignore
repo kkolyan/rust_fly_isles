@@ -1,0 +1,7 @@
+/target
+/.idea
+/version.txt
+/prefs.yml
+/*.exe
+/*.mm_profdata
+/*.zip

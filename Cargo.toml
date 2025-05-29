@@ -1,0 +1,39 @@
+[package]
+name = "rust_fly_isles"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+macroquad = { version = "0.3.16", features = ["default"] }
+csscolorparser = "0.6.0"
+futures = "0.3.21"
+enum-iterator = "1.1.2"
+audrey = { version = "0.3.0", features = ["ogg_vorbis"] }
+assert_approx_eq = "1.1.0"
+rust_macroquad_ui = { git = "https://github.com/kkolyan/rust_macroquad_ui" }
+quad-storage = { git = "https://github.com/kkolyan/quad-storage" }
+rust-ini = "0.18.0"
+chrono = "0.4.22"
+
+[build-dependencies]
+chrono = "0.4.22"
+
+[profile.dev-nodebug]
+inherits = "dev"
+debug = false
+
+[profile.dev]
+lto = "off"
+
+[profile.release]
+lto = "off"
+opt-level = 1
+
+[profile.dist]
+inherits = "release"
+lto = true
+opt-level = "z"
+codegen-units = 1
+
+[profile.dev.package."*"]
+opt-level = 1
